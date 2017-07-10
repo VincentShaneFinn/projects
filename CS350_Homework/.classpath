@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/Client.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/cmu_time_awb.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/cmu_us_kal.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/cmudict04.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/cmulex.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/cmutimelex.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/EmacspeakServer.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/en_us.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/freetts.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/FreeTTSEmacspeakServer.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/FreeTTSHelloWorld.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/freetts-jsapi10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/HelloWorld.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/jsapi.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/JTime.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/MixedVoices.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/Player.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/Server.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Finnx/Desktop/CS350_Homework/libs/WebStartClock.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
