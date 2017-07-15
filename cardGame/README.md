@@ -1,10 +1,10 @@
 Vincent Finn 
 
-Texas hold em card game web app built for fun and so I could play with a few friends on their phones.
+Texas hold em card game web app built for fun in my free time so I could play with a few friends on their phones.
 
 -- How to play
 
-go to the website https://texas-hold-em-247.herokuapp.com/ and type a username. The first player who joins will be the "driver", turns should end them selves, but if everyone went and it gets stuck,
+go to the website https://texas-hold-em-247.herokuapp.com/ and type a username. The first player who joins will be the "driver". Turns should end them selves, but if everyone went and it gets stuck,
 this player can click end round on the bottom and all cards will be played. The driver is also responsible for clicking the box with the winner when the round is over, as there is no card scoring engine yet.
 
 
