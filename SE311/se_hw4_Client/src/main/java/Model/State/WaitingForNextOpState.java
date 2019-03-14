@@ -1,20 +1,25 @@
 package Model.State;
 
 import Controller.CalculatorController;
+import Model.Composite.*;
 
 public class WaitingForNextOpState implements ICalculatorState {
 	
 	private String operator;
-	private int precedingValue;
+	private IArithmaticComponent precedingAC;
 	
-	public WaitingForNextOpState(String _operator, int _precedingValue) {
+	public WaitingForNextOpState(String _operator, IArithmaticComponent _precedingAC) {
 		operator = _operator;
-		precedingValue = _precedingValue;
+		precedingAC = _precedingAC;
+		
+		Model.Visitor.DisplayVisitor visitor = new Model.Visitor.DisplayVisitor();
+		_precedingAC.accept(visitor);
+		visitor.print();
 	}
 
 	public void digitEntered(CalculatorController context, String digit) {
 		context.setDisplayText(digit);
-		context.setState(new NextOperandState(operator, precedingValue, digit));
+		context.setState(new NextOperandState(precedingAC, operator, digit));
 	}
 
 	public void operatorEntered(CalculatorController context, String operator) {

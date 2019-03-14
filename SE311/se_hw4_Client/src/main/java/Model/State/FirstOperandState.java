@@ -3,6 +3,7 @@ package Model.State;
 import javax.swing.JOptionPane;
 
 import Controller.CalculatorController;
+import Model.Composite.DigitComponent;
 
 public class FirstOperandState implements ICalculatorState{
 	
@@ -18,8 +19,8 @@ public class FirstOperandState implements ICalculatorState{
 	}
 
 	public void operatorEntered(CalculatorController context, String operator) {
-		context.setDisplayText(operator);
-		context.setState(new WaitingForNextOpState(operator,  Integer.parseInt(number)));
+		DigitComponent dc = new DigitComponent(Integer.parseInt(number));
+		context.setState(new WaitingForNextOpState(operator,  dc));
 	}
 
 	public void equalsEntered(CalculatorController context) {

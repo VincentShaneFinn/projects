@@ -1,35 +1,51 @@
 package Model.State;
 
 import Controller.CalculatorController;
+import Model.Composite.*;
+import Model.Visitor.SolveVisitor;
 
 public class NextOperandState implements ICalculatorState {
 
-	private String operator;
-	private int precedingValue;
+	private String precedingOperator;
+	private IArithmaticComponent precedingAC;
 	private String nextValue;
 	
-	public NextOperandState(String _operator, int _precedingValue, String _nextValue) {
-		operator = _operator;
-		precedingValue = _precedingValue;
+	public NextOperandState(IArithmaticComponent _precedingAC, String _operator, String _nextValue) {
+		precedingOperator = _operator;
+		precedingAC = _precedingAC;
 		nextValue = _nextValue;
 	}
 
 	public void digitEntered(CalculatorController context, String digit) {
-		// TODO Auto-generated method stub
-		
+		nextValue += digit;
+		context.setDisplayText(nextValue);
 	}
 
 	public void operatorEntered(CalculatorController context, String operator) {
-		// TODO Auto-generated method stub
+		DigitComponent dc = new DigitComponent(Integer.parseInt(nextValue));
+		EquationComponent equation = new EquationComponent(precedingAC, precedingOperator, dc);
 		
+		calculate(equation, context);
+		
+		context.setState(new WaitingForNextOpState(operator, equation));
 	}
 
 	public void equalsEntered(CalculatorController context) {
-		//GOTO calculate state
+		DigitComponent dc = new DigitComponent(Integer.parseInt(nextValue));
+		EquationComponent equation = new EquationComponent(precedingAC, precedingOperator, dc);
+		
+		calculate(equation, context);
+		context.setState(new CalculateState());
 	}
 
 	public void clearEntered(CalculatorController context) {
 		context.clear();
+	}
+	
+	private void calculate(EquationComponent equation, CalculatorController context) {
+		SolveVisitor visitor = new SolveVisitor();
+		equation.accept(visitor);
+		context.setDisplayText(Integer.toString(visitor.getResult()));
 	}
 
 	

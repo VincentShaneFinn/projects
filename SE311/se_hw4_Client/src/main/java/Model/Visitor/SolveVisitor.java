@@ -6,21 +6,20 @@ import Model.Composite.EquationComponent;
 public class SolveVisitor implements IACVisitor {
 	
 	private int currentEvaluation = 0;
-	private int currentDigit = 0;
 	
 	public int getResult() {
 		return currentEvaluation;
 	}
 
 	public void visit(DigitComponent digit) {
-		currentDigit = digit.getDigit();
+		currentEvaluation = digit.getDigit();
 	}
 
 	public void visit(EquationComponent equation) {
 		equation.getLeft().accept(this);
-		int left = currentDigit;
+		int left = currentEvaluation;
 		equation.getRight().accept(this);
-		int right = currentDigit;
+		int right = currentEvaluation;
 		
 		if(equation.getOperator().equals("+")) {
 			currentEvaluation = left + right;
