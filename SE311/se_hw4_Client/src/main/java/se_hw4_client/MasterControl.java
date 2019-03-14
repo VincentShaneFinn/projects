@@ -2,6 +2,8 @@ package se_hw4_client;
 
 import javax.swing.JFrame;
 
+import View.JavaCalculator;
+
 public class MasterControl {
 
 	public static void main(String[] args) {
