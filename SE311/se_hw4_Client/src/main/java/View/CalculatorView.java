@@ -5,7 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.*;
 
-public class JavaCalculator extends JFrame {
+public class CalculatorView extends JFrame {
 
     private JTextField jtfTextField;
     
@@ -28,7 +28,7 @@ public class JavaCalculator extends JFrame {
     private JButton jbMultiply;
     private JButton jbDivide;
 
-    public JavaCalculator() {
+    public CalculatorView() {
 
         JPanel numberPanel = new JPanel();
         numberPanel.setLayout(new GridLayout(4, 5));
@@ -84,10 +84,10 @@ public class JavaCalculator extends JFrame {
         jbEqual.addActionListener(new EqualsListener(jtfTextField));
         jbClear.addActionListener(new ClearListener(jtfTextField));
         
-        jbAdd.addActionListener(new AddListener(jtfTextField));
-        jbSubtract.addActionListener(new SubtractListener(jtfTextField));
-        jbMultiply.addActionListener(new MultiplyListener(jtfTextField));
-        jbDivide.addActionListener(new DivideListener(jtfTextField));
+        jbAdd.addActionListener(new OperatorListener("+", jtfTextField));
+        jbSubtract.addActionListener(new OperatorListener("-", jtfTextField));
+        jbMultiply.addActionListener(new OperatorListener("*", jtfTextField));
+        jbDivide.addActionListener(new OperatorListener("/", jtfTextField));
     }
     
     abstract class textFieldListener {
@@ -122,7 +122,6 @@ public class JavaCalculator extends JFrame {
 
 		public EqualsListener(JTextField _textField) {
 			super(_textField);
-			// TODO Auto-generated constructor stub
 		}
 
 		public void actionPerformed(ActionEvent e) {
@@ -135,7 +134,6 @@ public class JavaCalculator extends JFrame {
 
 		public ClearListener(JTextField _textField) {
 			super(_textField);
-			// TODO Auto-generated constructor stub
 		}
 
 		public void actionPerformed(ActionEvent e) {
@@ -144,54 +142,16 @@ public class JavaCalculator extends JFrame {
     	
     }
     
-    class AddListener extends textFieldListener implements ActionListener {
+    class OperatorListener extends textFieldListener implements ActionListener {
 
-		public AddListener(JTextField _textField) {
+    	private String operator;
+		public OperatorListener(String _operator, JTextField _textField) {
 			super(_textField);
-			// TODO Auto-generated constructor stub
+			operator = _operator;
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			jtfTextField.setText("+");
-		}
-    	
-    }
-    
-    class SubtractListener extends textFieldListener implements ActionListener {
-
-		public SubtractListener(JTextField _textField) {
-			super(_textField);
-			// TODO Auto-generated constructor stub
-		}
-
-		public void actionPerformed(ActionEvent e) {
-			jtfTextField.setText("-");
-		}
-    	
-    }
-    
-    class MultiplyListener extends textFieldListener implements ActionListener {
-
-		public MultiplyListener(JTextField _textField) {
-			super(_textField);
-			// TODO Auto-generated constructor stub
-		}
-
-		public void actionPerformed(ActionEvent e) {
-			jtfTextField.setText("*");
-		}
-    	
-    }
-    
-    class DivideListener extends textFieldListener implements ActionListener {
-
-		public DivideListener(JTextField _textField) {
-			super(_textField);
-			// TODO Auto-generated constructor stub
-		}
-
-		public void actionPerformed(ActionEvent e) {
-			jtfTextField.setText("/");
+			jtfTextField.setText(operator);
 		}
     	
     }
