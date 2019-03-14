@@ -13,7 +13,7 @@ public class CalculatorView extends JFrame {
 
     private JTextField jtfTextField;
 
-	public void setJtfTextField(String text) {
+	public void setDisplayText(String text) {
 		jtfTextField.setText(text);
 	}
 

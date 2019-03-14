@@ -1,8 +1,8 @@
 package Model.Composite;
 
-import Model.Visitor.ACVisitor;
+import Model.Visitor.IACVisitor;
 
-public class DigitComponent implements ArithmaticComponent {
+public class DigitComponent implements IArithmaticComponent {
 
 	private int digit;
 	
@@ -14,7 +14,7 @@ public class DigitComponent implements ArithmaticComponent {
 		return digit;
 	}
 
-	public void accept(ACVisitor visitor) {
+	public void accept(IACVisitor visitor) {
 		visitor.visit(this);
 	}
 

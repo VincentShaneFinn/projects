@@ -3,7 +3,7 @@ package Model.Visitor;
 import Model.Composite.DigitComponent;
 import Model.Composite.EquationComponent;
 
-public class DisplayVisitor implements ACVisitor {
+public class DisplayVisitor implements IACVisitor {
 
 	private StringBuilder sb = new StringBuilder();
 	

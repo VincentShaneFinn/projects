@@ -1,25 +1,26 @@
 package Model.Composite;
 
 import Model.Operator;
-import Model.Visitor.ACVisitor;
+import Model.Visitor.IACVisitor;
 
-public class EquationComponent implements ArithmaticComponent {
+public class EquationComponent implements IArithmaticComponent {
 
-	private ArithmaticComponent left;
-	private ArithmaticComponent right;
+	private IArithmaticComponent left;
+	private IArithmaticComponent right;
 	private Operator operator;
+	public int result;
 	
-	public EquationComponent(ArithmaticComponent _left, Operator _operator, ArithmaticComponent _right) {
+	public EquationComponent(IArithmaticComponent _left, Operator _operator, IArithmaticComponent _right) {
 		left = _left;
 		operator = _operator;
 		right = _right;
 	}
 	
-	public ArithmaticComponent getLeft() {
+	public IArithmaticComponent getLeft() {
 		return left;
 	}
 	
-	public ArithmaticComponent getRight() {
+	public IArithmaticComponent getRight() {
 		return right;
 	}
 
@@ -27,7 +28,7 @@ public class EquationComponent implements ArithmaticComponent {
 		return operator;
 	}
 
-	public void accept(ACVisitor visitor) {
+	public void accept(IACVisitor visitor) {
 		visitor.visit(this);
 	}
 
