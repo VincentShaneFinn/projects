@@ -16,8 +16,7 @@ public class MasterControl {
 		dv.visit(new Model.Composite.EquationComponent(new DigitComponent(2), Operator.Plus, new DigitComponent(3)));
 		dv.print();
 		
-		CalculatorController controller =  new CalculatorController();
-		controller.presentView();
+		new CalculatorController();
 	}
 
 	

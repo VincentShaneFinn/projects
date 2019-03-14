@@ -6,13 +6,15 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 import Model.Operator;
+import Model.State.*;
 import View.CalculatorView;
 
 public class CalculatorController {
 
 	private CalculatorView view;
+	private CalculatorState state = new InitialState();
 	
-	public void presentView() {
+	public CalculatorController() {
         view = new CalculatorView();
         view.pack();
         view.setLocationRelativeTo(null);
@@ -20,14 +22,6 @@ public class CalculatorController {
         view.setVisible(true);
         
         setupListeners();
-	}
-	
-	public void setInput(int digit) {
-		view.setJtfTextField(Integer.toString(digit));
-	}
-	
-	public void setInput(Operator operator) {
-		view.setJtfTextField(operator.toString());
 	}
 	
 	private void setupListeners() {
@@ -50,6 +44,28 @@ public class CalculatorController {
         view.jbMultiply.addActionListener(new OperatorListener(Operator.Multiply));
         view.jbDivide.addActionListener(new OperatorListener(Operator.Divide));
 	}
+	
+	
+	public void setTextField(String text) {
+		view.setJtfTextField(text);
+	}
+	
+	public void setState(CalculatorState _state) {
+		state = _state;
+	}
+	
+	public CalculatorState getState() {
+		return state;
+	}
+	
+	private void setInput(int digit) {
+		state.digitEntered(this, digit);
+	}
+	
+	private void setInput(Operator operator) {
+		state.operatorEntered(this, operator);
+	}
+	
 	
 	class OperatorListener implements ActionListener {
 		
