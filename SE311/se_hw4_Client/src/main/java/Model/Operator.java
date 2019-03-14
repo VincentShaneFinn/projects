@@ -1,6 +1,6 @@
 package Model;
 
-public enum Operators {
+public enum Operator {
 	Plus,
 	Minus,
 	Multiply,

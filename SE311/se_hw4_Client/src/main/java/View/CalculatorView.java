@@ -3,13 +3,21 @@ package View;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
+import Controller.CalculatorController;
+import Model.Operator;
+
 import java.util.*;
 
 public class CalculatorView extends JFrame {
 
     private JTextField jtfTextField;
-    
-    private JButton jbNum1;
+
+	public void setJtfTextField(String text) {
+		jtfTextField.setText(text);
+	}
+
+	private JButton jbNum1;
     private JButton jbNum2;
     private JButton jbNum3;
     private JButton jbNum4;
@@ -28,8 +36,12 @@ public class CalculatorView extends JFrame {
     private JButton jbMultiply;
     private JButton jbDivide;
 
-    public CalculatorView() {
+    private CalculatorController controller;
+    
+    public CalculatorView(CalculatorController _controller) {
 
+    	controller = _controller;
+    	
         JPanel numberPanel = new JPanel();
         numberPanel.setLayout(new GridLayout(4, 5));
         numberPanel.add(jbNum1 = new JButton("1"));
@@ -70,90 +82,52 @@ public class CalculatorView extends JFrame {
 
         add(mainPanel);
 
-        jbNum1.addActionListener(new DigitNumberListener(1, jtfTextField));
-        jbNum2.addActionListener(new DigitNumberListener(2, jtfTextField));
-        jbNum3.addActionListener(new DigitNumberListener(3, jtfTextField));
-        jbNum4.addActionListener(new DigitNumberListener(4, jtfTextField));
-        jbNum5.addActionListener(new DigitNumberListener(5, jtfTextField));
-        jbNum6.addActionListener(new DigitNumberListener(6, jtfTextField));
-        jbNum7.addActionListener(new DigitNumberListener(7, jtfTextField));
-        jbNum8.addActionListener(new DigitNumberListener(8, jtfTextField));
-        jbNum9.addActionListener(new DigitNumberListener(9, jtfTextField));
-        jbNum0.addActionListener(new DigitNumberListener(0, jtfTextField));
+        jbNum1.addActionListener(new DigitNumberListener(1));
+        jbNum2.addActionListener(new DigitNumberListener(2));
+        jbNum3.addActionListener(new DigitNumberListener(3));
+        jbNum4.addActionListener(new DigitNumberListener(4));
+        jbNum5.addActionListener(new DigitNumberListener(5));
+        jbNum6.addActionListener(new DigitNumberListener(6));
+        jbNum7.addActionListener(new DigitNumberListener(7));
+        jbNum8.addActionListener(new DigitNumberListener(8));
+        jbNum9.addActionListener(new DigitNumberListener(9));
+        jbNum0.addActionListener(new DigitNumberListener(0));
 
-        jbEqual.addActionListener(new EqualsListener(jtfTextField));
-        jbClear.addActionListener(new ClearListener(jtfTextField));
+        jbEqual.addActionListener(new OperatorListener(Operator.Equals));
+        jbClear.addActionListener(new OperatorListener(Operator.Clear));
         
-        jbAdd.addActionListener(new OperatorListener("+", jtfTextField));
-        jbSubtract.addActionListener(new OperatorListener("-", jtfTextField));
-        jbMultiply.addActionListener(new OperatorListener("*", jtfTextField));
-        jbDivide.addActionListener(new OperatorListener("/", jtfTextField));
-    }
-    
-    abstract class textFieldListener {
-    	
-    	private JTextField textField;
-    	
-    	public textFieldListener(JTextField _textField) {
-    		textField = _textField;
-    	}
-    	
-    	protected void setTextField(String text) {
-    		textField.setText(text);
-    	}
+        jbAdd.addActionListener(new OperatorListener(Operator.Plus));
+        jbSubtract.addActionListener(new OperatorListener(Operator.Minus));
+        jbMultiply.addActionListener(new OperatorListener(Operator.Multiply));
+        jbDivide.addActionListener(new OperatorListener(Operator.Divide));
     }
 
-	class DigitNumberListener extends textFieldListener implements ActionListener {
+	class DigitNumberListener implements ActionListener {
     	
     	private int digit;
     	
-    	public DigitNumberListener(int _digit, JTextField textField) {
-    		super(textField);
+    	public DigitNumberListener(int _digit) {
     		digit = _digit;
     	}
 
 		public void actionPerformed(ActionEvent e) {
-			setTextField(Integer.toString(digit));
+			controller.inputDigit(digit);
 		}
 		
     }
     
-    class EqualsListener extends textFieldListener implements ActionListener {
-
-		public EqualsListener(JTextField _textField) {
-			super(_textField);
-		}
+    class OperatorListener implements ActionListener {
+    	
+    	private Operator operator;
+    	
+    	public OperatorListener(Operator _operator) {
+    		operator = _operator;
+    	}
 
 		public void actionPerformed(ActionEvent e) {
-			setTextField("=");
+			controller.inputOperator(operator);
 		}
-    	
-    }
-    
-    class ClearListener extends textFieldListener implements ActionListener {
-
-		public ClearListener(JTextField _textField) {
-			super(_textField);
-		}
-
-		public void actionPerformed(ActionEvent e) {
-			jtfTextField.setText("C");
-		}
-    	
-    }
-    
-    class OperatorListener extends textFieldListener implements ActionListener {
-
-    	private String operator;
-		public OperatorListener(String _operator, JTextField _textField) {
-			super(_textField);
-			operator = _operator;
-		}
-
-		public void actionPerformed(ActionEvent e) {
-			jtfTextField.setText(operator);
-		}
-    	
-    }
+		
+    }	
 
 }
