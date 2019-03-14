@@ -1,0 +1,6 @@
+Filter.class
+Pipe.class
+Generator.class
+PipeImpl.class
+UpperCaseConverter.class
+UpperCaseMain.class
