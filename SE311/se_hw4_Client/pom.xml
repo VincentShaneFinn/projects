@@ -12,7 +12,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>se_hw4.MasterControl</mainClass>
+							<mainClass>se_hw4.CalculatorController</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

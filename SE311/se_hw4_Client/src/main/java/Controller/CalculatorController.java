@@ -6,13 +6,23 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 import Model.Operator;
+import Model.Composite.DigitComponent;
 import Model.State.*;
+import Model.Visitor.DisplayVisitor;
 import View.CalculatorView;
 
 public class CalculatorController {
 
 	private CalculatorView view;
 	private CalculatorState state = new InitialState();
+	
+	public static void main(String[] args) {		
+		DisplayVisitor dv = new DisplayVisitor();
+		dv.visit(new Model.Composite.EquationComponent(new DigitComponent(2), Operator.Plus, new DigitComponent(3)));
+		dv.print();
+		
+		new CalculatorController();
+	}
 	
 	public CalculatorController() {
         view = new CalculatorView();
@@ -58,12 +68,8 @@ public class CalculatorController {
 		return state;
 	}
 	
-	private void setInput(int digit) {
-		state.digitEntered(this, digit);
-	}
-	
-	private void setInput(Operator operator) {
-		state.operatorEntered(this, operator);
+	private CalculatorController getClassObj() {
+		return this;
 	}
 	
 	
@@ -76,7 +82,7 @@ public class CalculatorController {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			setInput(operator);
+			state.operatorEntered(getClassObj(), operator);
 		}
 		
 	}	
@@ -90,7 +96,7 @@ public class CalculatorController {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			setInput(digit);
+			state.digitEntered(getClassObj(), digit);
 		}
 		
 	}
