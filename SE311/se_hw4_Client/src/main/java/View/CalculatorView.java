@@ -1,13 +1,7 @@
 package View;
 
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-
-import Controller.*;
-import Model.Operator;
-
-import java.util.*;
 
 public class CalculatorView extends JFrame {
 

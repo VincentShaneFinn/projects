@@ -1,30 +1,32 @@
 package Model.State;
 
 import Controller.CalculatorController;
-import Model.Operator;
 
 public class WaitingForNextOpState implements ICalculatorState {
 	
+	private String operator;
+	private int precedingValue;
 	
-
-	public void digitEntered(CalculatorController context, String digit) {
-		// TODO Auto-generated method stub
-		
+	public WaitingForNextOpState(String _operator, int _precedingValue) {
+		operator = _operator;
+		precedingValue = _precedingValue;
 	}
 
-	public void operatorEntered(CalculatorController context, Operator operator) {
-		// TODO Auto-generated method stub
-		
+	public void digitEntered(CalculatorController context, String digit) {
+		context.setDisplayText(digit);
+		context.setState(new NextOperandState(operator, precedingValue, digit));
+	}
+
+	public void operatorEntered(CalculatorController context, String operator) {
+		context.errorMessage();
 	}
 
 	public void equalsEntered(CalculatorController context) {
-		// TODO Auto-generated method stub
-		
+		context.errorMessage();
 	}
 
 	public void clearEntered(CalculatorController context) {
-		// TODO Auto-generated method stub
-		
+		context.clear();
 	}
 
 }

@@ -1,7 +1,6 @@
 package Model.State;
 
 import Controller.CalculatorController;
-import Model.Operator;
 
 public class InitialState implements ICalculatorState {
 
@@ -10,7 +9,7 @@ public class InitialState implements ICalculatorState {
 		context.setState(new FirstOperandState(digit));
 	}
 
-	public void operatorEntered(CalculatorController context, Operator operator) {
+	public void operatorEntered(CalculatorController context, String operator) {
 		//nothing happens if operator pressed in the initial state
 	}
 

@@ -4,8 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
-import Model.Operator;
 import Model.Composite.DigitComponent;
 import Model.State.*;
 import Model.Visitor.DisplayVisitor;
@@ -46,13 +46,13 @@ public class CalculatorController {
         view.jbNum9.addActionListener(new DigitListener("9"));
         view.jbNum0.addActionListener(new DigitListener("0"));
 
-        view.jbEqual.addActionListener(new OperatorListener(Operator.Equals));
-        view.jbClear.addActionListener(new OperatorListener(Operator.Clear));
+        view.jbEqual.addActionListener(new OperatorListener("="));
+        view.jbClear.addActionListener(new OperatorListener("C"));
         
-        view.jbAdd.addActionListener(new OperatorListener(Operator.Plus));
-        view.jbSubtract.addActionListener(new OperatorListener(Operator.Minus));
-        view.jbMultiply.addActionListener(new OperatorListener(Operator.Multiply));
-        view.jbDivide.addActionListener(new OperatorListener(Operator.Divide));
+        view.jbAdd.addActionListener(new OperatorListener("+"));
+        view.jbSubtract.addActionListener(new OperatorListener("-"));
+        view.jbMultiply.addActionListener(new OperatorListener("*"));
+        view.jbDivide.addActionListener(new OperatorListener("/"));
 	}
 	
 	public CalculatorView getView() {
@@ -71,25 +71,45 @@ public class CalculatorController {
 		return state;
 	}	
 	
+	public void errorMessage() {
+		Object[] options = {"Reset", "Discard"};
+		//Custom button text
+		int n = JOptionPane.showOptionDialog(view,
+			    "Would you like to reset and clear the calculator or discard your last input",
+			    "Ops, something went wrong",
+			    JOptionPane.YES_NO_OPTION,
+			    JOptionPane.QUESTION_MESSAGE,
+			    null,     //do not use a custom Icon
+			    options,  //the titles of buttons
+			    options[1]); //default button title
+		
+		if(n == 0) {
+			clear();
+		}
+	}
+	
+	public void clear() {
+		setDisplayText("");
+		setState(new InitialState());
+	}
+	
 	class OperatorListener implements ActionListener {
 		
-		private Operator operator;
+		private String operator;
 		
-		public OperatorListener(Operator _operator) {
+		public OperatorListener(String _operator) {
 			operator = _operator;
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			switch(operator) {
-			case Equals:
+			if(operator.equals("=")) {
 				state.equalsEntered(CalculatorController.this);
-				break;
-			case Clear:
+			}
+			else if(operator.equals("C")) {
 				state.clearEntered(CalculatorController.this);
-				break;
-			default:
+			}
+			else {
 				state.operatorEntered(CalculatorController.this, operator);
-				break;
 			}
 		}
 		

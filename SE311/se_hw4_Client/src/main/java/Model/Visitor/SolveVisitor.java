@@ -2,7 +2,6 @@ package Model.Visitor;
 
 import Model.Composite.DigitComponent;
 import Model.Composite.EquationComponent;
-import Model.Operator;
 
 public class SolveVisitor implements IACVisitor {
 	
@@ -23,21 +22,17 @@ public class SolveVisitor implements IACVisitor {
 		equation.getRight().accept(this);
 		int right = currentDigit;
 		
-		switch (equation.getOperator()) {
-		case Plus:
+		if(equation.getOperator().equals("+")) {
 			currentEvaluation = left + right;
-			break;
-		case Minus:
+		}
+		if(equation.getOperator().equals("-")) {
 			currentEvaluation = left - right;
-			break;
-		case Multiply:
+		}
+		if(equation.getOperator().equals("*")) {
 			currentEvaluation = left * right;
-			break;
-		case Divide:
+		}
+		if(equation.getOperator().equals("/")) {
 			currentEvaluation = left / right;
-			break;
-			default:
-				break;
 		}
 	}
 
