@@ -1,0 +1,106 @@
+Vincent Finn
+
+Red Black Tree implementation testing
+achieving 100% statement and branch coverage for the relevant parts of the program. 
+You'll also be briefly analyzing the testability of the code and reflecting on its use of Design by Contract.
+
+for 100% statement coverage write a few tests for each method in class
+
+To measure the code coverage of your test suite from the command line, run
+
+./gradlew test jacocoTestReport
+
+	
+IsEmpty
+	Tree is actually empty
+	Tree is not empty
+	
+Put and Get
+	Put Null Key
+	Put Null Value
+	Get Null
+	Get on Empty Tree
+	Put and get 1 Item
+	Put and get several Items
+	Put duplicate key
+	Put 0 key
+	Put Negative key
+	Put Positive Integer.Max key
+	Put Negative Integer.Max key
+	
+	I did pretty well on code coverage here my first run, only forgot to test if the key is null
+	
+	Maybe Put keys in different orders
+	Maybe Try to Put a ton of pairs in the tree
+ 
+Contains
+	Contains Value
+	Doesn't Contain Value
+	Contains Null
+ 
+Delete, Min, Max, and with key
+	Delete Min
+	Delete Max
+	Delete Key
+	Delete Null Keys
+	Delete From Empty Tree, Min and Max
+	
+	I cannot figure out how to build a tree that has a the root's children be left black and right red, I assume it is impossible
+	other than that my initial tests reach code coverage asside from this case in each method.
+ 
+Minimum
+	Min of Empty Tree
+	Min of Single Value Tree
+	Min of Multiple Value Tree
+	Min of Tree with Int Min and Max
+	
+Maximum
+	Max of Empty Tree
+	Max of Single Value Tree
+	Max of Multiple Value Tree
+	Max of Tree with Int Min and Max
+	
+Floor
+	Floor of Empty Tree
+	Floor with Null key
+	Floor of Single Value Tree
+	Floor of Multiple Value Tree
+	There is No Item Less than given value
+	Floor of Max and Min
+	Floor of Zero
+	Floor of Negative
+	
+Ceiling
+	Ceiling of Empty Tree
+	Ceiling of Single Value Tree
+	Ceiling of Multiple Value Tree
+	There is No Item Greater than given value
+	Ceiling of Max and Min
+	Ceiling of Zero
+	Ceiling of Negative
+	
+Rank
+	Rank Value is Null
+	Rank Tree is Empty
+	Rank Single Value Tree
+	Rank Multiple Value Tree
+	There are no Items Less than given value
+	Rank of Max and Min
+	Rank of Zero
+	Rank of Negative
+Keys
+	Keys of empty tree
+	Keys of lo is null
+	Keys of hi is null
+	Keys of single tree
+		test with bad Lo and Hi
+	Keys of multiple tree
+		test with bad Lo and Hi
+Size
+	Size of empty tree
+	Size of lo is null
+	Size of hi is null
+	Size of single tree
+		test with bad Lo and Hi
+	Size of multiple tree
+		test with bad Lo and Hi

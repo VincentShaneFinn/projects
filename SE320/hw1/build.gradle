@@ -1,0 +1,33 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin:'application'
+mainClassName = "edu.drexel.se320.MyClasses.Main"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Guava for contracts
+    compile 'com.google.guava:guava:23.0'
+    
+    // JUnit for tests
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.hamcrest:hamcrest-library:1.3'
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+// This task only runs if 'test' has already run, i.e., "gradle test jacocoTestReport"
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/reports/coverage"
+    }
+}
+

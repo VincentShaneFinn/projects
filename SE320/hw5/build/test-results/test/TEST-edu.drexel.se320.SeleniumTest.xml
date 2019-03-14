@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.drexel.se320.SeleniumTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-12-03T21:08:11" hostname="DESKTOP-4MV61K7" time="5.788">
+  <properties/>
+  <testcase name="testOneItem" classname="edu.drexel.se320.SeleniumTest" time="5.788"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[1543871293446	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Finnx\\AppData\\Local\\Temp\\rust_mozprofile.8S2rTUlwyVpH"
+Unable to read VR Path Registry from C:\Users\Finnx\AppData\Local\openvr\openvrpaths.vrpath
+1543871294055	Marionette	INFO	Enabled via --marionette
+Unable to read VR Path Registry from C:\Users\Finnx\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Finnx\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\Finnx\AppData\Local\openvr\openvrpaths.vrpath
+1543871295382	Marionette	INFO	Listening on port 50881
+Unable to read VR Path Registry from C:\Users\Finnx\AppData\Local\openvr\openvrpaths.vrpath
+1543871295563	Marionette	WARN	TLS certificate errors will be ignored for this session
+1543871295606	Marionette	DEBUG	Register listener.js for window 4294967297
+Dec 03, 2018 4:08:15 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+1543871295740	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1543871295752	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1543871295753	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1543871295753	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967297"
+[Child 12220, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 12220Unable to read VR Path Registry from C:\Users\Finnx\AppData\Local\openvr\openvrpaths.vrpath
+1543871296176	Marionette	DEBUG	Register listener.js for window 8589934593
+1543871296219	Marionette	DEBUG	Check readyState "uninitialized for "about:blank"
+1543871296242	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "file:///C:/Users/Finnx/Desktop/SE320/hw5/web/index.html"
+1543871296251	Marionette	DEBUG	Received DOM event "pageshow" for "file:///C:/Users/Finnx/Desktop/SE320/hw5/web/index.html"
+1543871296500	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1543871296764	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+[Parent 15164, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 5316, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+]]></system-err>
+</testsuite>

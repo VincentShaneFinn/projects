@@ -1,0 +1,40 @@
+package edu.drexel.se320;
+
+import static org.junit.Assert.*;
+import org.junit.rules.ExpectedException;
+import org.junit.Rule;
+import org.junit.Test;
+import static org.mockito.Mockito.*;
+import java.util.List;
+import java.io.IOException;
+
+public class MockTests {
+
+    public MockTests() {}
+
+    /**
+     * Demonstrate a working mock from the Mockito documentation.
+     * http://static.javadoc.io/org.mockito/mockito-core/2.11.0/org/mockito/Mockito.html#verification
+     */
+    @Test
+    public void testMockDemo() {
+         List mockedList = mock(List.class);
+
+         mockedList.add("one");
+         mockedList.clear();
+
+         verify(mockedList).add("one");
+         verify(mockedList).clear();
+    }
+
+    @Test
+    public void testServerConnectionFailureGivesNull() throws IOException {
+        Client c = new Client();
+        ServerConnection sc = mock(ServerConnection.class);
+        when(sc.connectTo(anyString())).thenReturn(false);
+
+        // If you pass the mock above appropriately after refactoring, this test
+        // should pass.  Until then, it will fail.
+        assertNull(c.requestFile("DUMMY", "DUMMY"));
+    }
+}

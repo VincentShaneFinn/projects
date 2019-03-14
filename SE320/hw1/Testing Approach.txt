@@ -1,0 +1,134 @@
+There are only two inputs for this test, and the output should always be an expected error, or a specific index of where the element was found in the array
+The type of array and element will always be the same, but can be any comparable type
+
+Array:
+	Array could be null
+	Array could be size 0
+	Array could be size > 0
+	Array could be of type Integer, Long, Float, Double, or String
+	Array should be sorted, but can be unsorted
+Element:
+	Element could be null
+	Element could be an empty string ""
+	Element could be of size > 0
+	Element could be a numeric string
+	Element could be a character string
+	Element could be a combination of numbers and characters
+	Element could be the same character a few times in a row, with one different or the same at the end (###1, ###2)
+	Element could be in the arry or not
+	
+Outputs should be some expected error or a positive integer
+	
+Equivalence Partitioning
+
+I started with spliting up the testing criteria into groups.
+
+Invalid Input:
+	Null values, 0 length array, or unsorted array should still return something expected
+Valid Input:
+	Everything else
+Strictly Numeric Type:
+	Intger values:
+		Fair to say long would work the same
+	Signed values:
+		Positive, negative, 0
+	Extreme element sizes: 
+		max value, min value, 0, anywhere in between
+	Array size:
+		array of 1, array of 1 >= max, even array, odd array
+	Array Location:
+		first item, last item, middle item, some other random placement.
+	Are There Duplicates:
+		good enough to just have duplicates near the middle
+	String Integers:
+		run the same tests but for the string type.
+	Float values:
+		Fair to say double would work the same. run the same tests for float
+Strings with characters:
+	Strings that are single char:
+	
+	Strings that are multi char:
+	
+	Strings with special chars:
+		How to determine how "!" < "@"
+	Strings with spaces:
+	
+
+BadInputTests.Java:
+	This file tests all the bad input possibilities
+		-testBothNullInput() when array and elem are null, expect IllegalArgumentException
+		-testNullArrayInput() when array is null, expect IllegalArgumentException
+		-testNullElemInput() when elem is null, expext IllegalArgumentException
+		-testUnsortedArrayCanFind() when array is unsorted, but the number could still be found, expect the index
+		-testUnsortedArrayCantFind() when array is unsorted, and there would be no way for binary search to find it, expect NoSuchElementException
+	
+This was what I had I had the first time I looked at what the test cases for Integers might be	
+IntegerTests:
+	This file tests the Interger data type
+	for each, test when the element should and shouldn't be found represented in code as the function name + NF
+		-testSingleArr() array of size 1, expect index 0
+		
+		-testSingleArrNF() ADDED test to check that correct output is recieved when we give the array an item that does not exist in the array
+		-testEvenArrNF() array of even size, expect correct index
+		-testOddArrNF() array of odd size, expect correct index
+		for each of these tests, test an even sized array, and an odd sized array
+			-testFindMiddleItem()
+			-testFindFirstItem() 
+			-testFindLastItem()
+			-testEvenArrayNF() double check not found error is expected with an array of even length
+			-testOddArrayNF() double check not found error is expected with an array of odd length
+			-testFindLeftMiddleItem() if it can find the item to the left of the middle, it can probaly find anything
+			-testFindRightMiddleItem() if it can find the item to the right of the middle, it can probaly find anything
+			//could test a random left or right item
+			-testEvenArrayDuplicates() test an array with some duplicates, make sure it returns an int >= 0
+			-testOddArrayDuplicates() test an array with some duplicates, make sure it returns an int >= 0
+
+		for each of these, we will use a few arrays, and try to find 0s, positives, etc
+			-testFindZero()
+			-testFindPositive()
+			-testFindNegative()
+			-testFindMaxValue()
+			-testFindMinValue()
+			
+Float Tests
+To be safe, duplicate and repeat these same tests using the Float becuase it is similar but different enough from int to warrent this I believe.
+
+
+Strings don't need to go through these same tests, strings are compared on a letter to letter basis, the hard part is getting the sorted array with special characters.
+However I was did switch from a method of just going through every item in an array and making sure it could find each, 
+so I am leaving this code here that proves it finds strings in sorted arrays the same way as Ints and Floats
+
+StringTests: 
+	testCharacterArray() just a basic string of letters
+	testStringArray() just a basic array of words
+	testSpecialCharacters() given an array of just single special characters, does it find the items correctly like "$", "%", "^"
+	testSameCharactersAtFront() ["###1","###2"] 
+	testCaptitalLetters() ["upper", "Upper"]
+	testCapitalLettersNF() ["upper"] try to find "Upper"
+
+
+
+Note: I realize I should have consitantly used assertThat(BinarySearch.Find(arr, arr[n]), is(n)); Sometimes I just find the charcter and give it the index I know is right, but this is prone to more mistakes.
+If I put a wrong index, and the item actually was found at that wrong index, the test would pass incorrectly.
+	
+FAILED TESTS LOG
+- this is a list of all the failed tests that occured I found by tests that failed and are now fixed
+
+BUGS - this is where there was an actual bug found with the search algorithm
+
+	No bugs were found with the search algorithm itself
+
+Bad test assumption - sometimes a test would fail, but the search algorithm itself worked correctly, it was that test that was written incorrectly, such as giving an unsorted list when expecting it to be sorted
+	1. the first was when I made one array {Float.MIN_VALUE, -7.1f, 0f, 1.2f, 8.1f, Float.MAX_VALUE }, I didn't realize that Float.MIN_VALUE was actually a very small number, not a large negative like the int counterpart
+	so I just put it after 0 and added negative versions of each
+	
+	2. String[] arr = { "0","1.1","2.2","3.3","4.4","5.5","6.6","7.7","8.8","9.9","10.1" }; using this string, the last element 10.1 was not found because the comparison considers 10.1 < anything that starts with 2 or higher
+	I would label this as not a bug, but simply the expected response from giving it an unsorted array, moving the element after 1.1, becuase its basically saying the first character is equal, than checking the next,
+	and it evaluates "0" higher than "."
+	
+	3. String[] arr = {"-11.1","-11", "-1.1", "0", "5.1", "1002.2", "1002.3" }; it was not able to find -11.1, this is most likely becuase it evaluates "."(a period) higher than ""(whitespace),
+	fixed it by moving "-11.1" to the right of "-11"
+	
+	4. an additional bug was spotted with issue 3 array where it couldnt find -1.1, again this is becuase it evaluates the 1's in both -11's higher than the period, so i moved -1.1 to the first element,
+	I also moved 5.1 becuase I knew as far as strings go, this is considered the highest. the correctly sorted string looks like this String[] oddArrFullSpectrum = {"-1.1", "-11","-11.1", "0", "1002.2", "1002.3", "5.1" };
+	

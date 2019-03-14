@@ -1,0 +1,4 @@
+There are an incredible amount of tests you would have to write if you opted for stronger criteria. 
+You could do adding one item, another test for deleting that item, an extra test for adding 1 or 2 items, deleting both of those items, collapsing the controlls at any point.
+I have included both my eventflo diagram, and what I thought a reasonable event interaction coverage diagram might look like. The first has just 8 connections while the second has over 20.
+In either case, it limits the list to 2 items at max, and realistically you might try even more than that, which would grow exponentially. 

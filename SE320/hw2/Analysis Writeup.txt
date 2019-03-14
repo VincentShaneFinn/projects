@@ -1,0 +1,10 @@
+This program may be not have the best testability because there are many private helper functions that only run when certain preconditions exists.
+Since This RedBlackBST has a way to automatically remap the nodes to keep try and keep the tree balanced. Its hard to tell when test the branches of isRed()
+it would be easier if there was a way to visuallize the given tree. Aside from tree construction, testing the actuall functionality like adding, delete, min, max etc all have decent testability.
+ 
+Also There is a few lines where 100% coverage is impossible becuase you need to have a left child node be black and the right child node be red, which I belive is impossible.
+This makes these lines in particular untestable.
+
+
+Its use of the check method is definitely consistant, although I never encountered a situation where it returned false. I think it neither helps nor hurts the process of testing.
+It is probably uneccessary for someone who writes the perfect test suite, but as it is currently acting as additional precaution by the coder, I think it only helps.
