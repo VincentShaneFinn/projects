@@ -55,6 +55,9 @@ public class CalculatorController {
         view.jbDivide.addActionListener(new OperatorListener(Operator.Divide));
 	}
 	
+	public CalculatorView getView() {
+		return view;
+	}
 	
 	public void setDisplayText(String text) {
 		view.setDisplayText(text);
