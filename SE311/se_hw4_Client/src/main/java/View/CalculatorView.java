@@ -41,8 +41,12 @@ public class CalculatorView extends JFrame {
     public CalculatorView(CalculatorController _controller) {
 
     	controller = _controller;
-    	
-        JPanel numberPanel = new JPanel();
+        buildUI();
+        setupListeners();
+    }
+
+	private void buildUI() {
+		JPanel numberPanel = new JPanel();
         numberPanel.setLayout(new GridLayout(4, 5));
         numberPanel.add(jbNum1 = new JButton("1"));
         numberPanel.add(jbNum2 = new JButton("2"));
@@ -81,8 +85,10 @@ public class CalculatorView extends JFrame {
         mainPanel.add(numberPanel);
 
         add(mainPanel);
-
-        jbNum1.addActionListener(new DigitListener(1, controller));
+	}
+	
+	private void setupListeners() {
+		jbNum1.addActionListener(new DigitListener(1, controller));
         jbNum2.addActionListener(new DigitListener(2, controller));
         jbNum3.addActionListener(new DigitListener(3, controller));
         jbNum4.addActionListener(new DigitListener(4, controller));
@@ -100,6 +106,6 @@ public class CalculatorView extends JFrame {
         jbSubtract.addActionListener(new OperatorListener(Operator.Minus, controller));
         jbMultiply.addActionListener(new OperatorListener(Operator.Multiply, controller));
         jbDivide.addActionListener(new OperatorListener(Operator.Divide, controller));
-    }
+	}
 
 }
