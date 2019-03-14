@@ -1,4 +1,4 @@
-package se_hw4;
+package se_hw4_client;
 
 import java.awt.*;
 import java.awt.event.*;
