@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>390</x>
+      <x>200</x>
       <y>310</y>
       <w>100</w>
       <h>30</h>
@@ -15,7 +15,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>230</x>
+      <x>40</x>
       <y>90</y>
       <w>100</w>
       <h>30</h>
@@ -26,7 +26,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>530</x>
+      <x>340</x>
       <y>90</y>
       <w>100</w>
       <h>30</h>
@@ -37,7 +37,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>660</x>
+      <x>470</x>
       <y>370</y>
       <w>210</w>
       <h>70</h>
@@ -52,7 +52,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>350</x>
+      <x>160</x>
       <y>380</y>
       <w>180</w>
       <h>120</h>
@@ -66,7 +66,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>190</x>
+      <x>0</x>
       <y>150</y>
       <w>180</w>
       <h>120</h>
@@ -78,7 +78,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>490</x>
+      <x>300</x>
       <y>150</y>
       <w>180</w>
       <h>120</h>
@@ -92,7 +92,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>660</x>
+      <x>470</x>
       <y>250</y>
       <w>260</w>
       <h>180</h>
@@ -103,7 +103,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>270</x>
+      <x>80</x>
       <y>690</y>
       <w>600</w>
       <h>360</h>
@@ -115,7 +115,7 @@ Composite Pattern</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>460</x>
+      <x>270</x>
       <y>750</y>
       <w>220</w>
       <h>80</h>
@@ -129,7 +129,7 @@ ArithmaticComponent
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>280</x>
+      <x>90</x>
       <y>890</y>
       <w>270</w>
       <h>70</h>
@@ -144,7 +144,7 @@ ArithmaticComponent
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>590</x>
+      <x>400</x>
       <y>890</y>
       <w>270</w>
       <h>150</h>
@@ -164,7 +164,7 @@ _operation: Operation): void
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>420</x>
+      <x>230</x>
       <y>820</y>
       <w>170</w>
       <h>90</h>
@@ -175,7 +175,7 @@ _operation: Operation): void
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
+      <x>370</x>
       <y>840</y>
       <w>180</w>
       <h>70</h>
@@ -186,7 +186,7 @@ _operation: Operation): void
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>270</x>
+      <x>80</x>
       <y>550</y>
       <w>600</w>
       <h>120</h>
@@ -202,7 +202,7 @@ State handles what to call when buttons are pushed during certain states</panel_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>990</x>
+      <x>800</x>
       <y>550</y>
       <w>290</w>
       <h>70</h>
@@ -216,7 +216,7 @@ Operators
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>380</x>
+      <x>190</x>
       <y>0</y>
       <w>100</w>
       <h>30</h>
@@ -227,7 +227,7 @@ Operators
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>420</x>
+      <x>230</x>
       <y>20</y>
       <w>120</w>
       <h>150</h>
@@ -238,7 +238,7 @@ Operators
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
+      <x>330</x>
       <y>260</y>
       <w>80</w>
       <h>150</h>
@@ -249,7 +249,7 @@ Operators
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>660</x>
+      <x>470</x>
       <y>460</y>
       <w>210</w>
       <h>70</h>
@@ -264,7 +264,7 @@ Operators
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>860</x>
+      <x>670</x>
       <y>350</y>
       <w>60</w>
       <h>140</h>
@@ -275,7 +275,7 @@ Operators
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
+      <x>330</x>
       <y>400</y>
       <w>160</w>
       <h>30</h>
@@ -286,7 +286,7 @@ Operators
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
+      <x>330</x>
       <y>460</y>
       <w>160</w>
       <h>30</h>
@@ -297,7 +297,7 @@ Operators
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>950</x>
+      <x>760</x>
       <y>420</y>
       <w>180</w>
       <h>50</h>
@@ -310,12 +310,60 @@ Operators
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>890</x>
+      <x>700</x>
       <y>420</y>
       <w>80</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>710</x>
+      <y>670</y>
+      <w>510</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+CalculatorState
+--
+/+ digitEntered(CalculatorController context, int digit): void/
+/+ operatorEntered(CalculatorController context, Operator operator): :void/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>710</x>
+      <y>780</y>
+      <w>160</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>InitalState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>890</x>
+      <y>780</y>
+      <w>160</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>FirstOperand</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1070</x>
+      <y>780</y>
+      <w>150</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>SecondOperand</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
