@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import Controller.CalculatorController;
+import Controller.*;
 import Model.Operator;
 
 import java.util.*;
@@ -82,52 +82,24 @@ public class CalculatorView extends JFrame {
 
         add(mainPanel);
 
-        jbNum1.addActionListener(new DigitNumberListener(1));
-        jbNum2.addActionListener(new DigitNumberListener(2));
-        jbNum3.addActionListener(new DigitNumberListener(3));
-        jbNum4.addActionListener(new DigitNumberListener(4));
-        jbNum5.addActionListener(new DigitNumberListener(5));
-        jbNum6.addActionListener(new DigitNumberListener(6));
-        jbNum7.addActionListener(new DigitNumberListener(7));
-        jbNum8.addActionListener(new DigitNumberListener(8));
-        jbNum9.addActionListener(new DigitNumberListener(9));
-        jbNum0.addActionListener(new DigitNumberListener(0));
+        jbNum1.addActionListener(new DigitListener(1, controller));
+        jbNum2.addActionListener(new DigitListener(2, controller));
+        jbNum3.addActionListener(new DigitListener(3, controller));
+        jbNum4.addActionListener(new DigitListener(4, controller));
+        jbNum5.addActionListener(new DigitListener(5, controller));
+        jbNum6.addActionListener(new DigitListener(6, controller));
+        jbNum7.addActionListener(new DigitListener(7, controller));
+        jbNum8.addActionListener(new DigitListener(8, controller));
+        jbNum9.addActionListener(new DigitListener(9, controller));
+        jbNum0.addActionListener(new DigitListener(0, controller));
 
-        jbEqual.addActionListener(new OperatorListener(Operator.Equals));
-        jbClear.addActionListener(new OperatorListener(Operator.Clear));
+        jbEqual.addActionListener(new OperatorListener(Operator.Equals, controller));
+        jbClear.addActionListener(new OperatorListener(Operator.Clear, controller));
         
-        jbAdd.addActionListener(new OperatorListener(Operator.Plus));
-        jbSubtract.addActionListener(new OperatorListener(Operator.Minus));
-        jbMultiply.addActionListener(new OperatorListener(Operator.Multiply));
-        jbDivide.addActionListener(new OperatorListener(Operator.Divide));
+        jbAdd.addActionListener(new OperatorListener(Operator.Plus, controller));
+        jbSubtract.addActionListener(new OperatorListener(Operator.Minus, controller));
+        jbMultiply.addActionListener(new OperatorListener(Operator.Multiply, controller));
+        jbDivide.addActionListener(new OperatorListener(Operator.Divide, controller));
     }
-
-	class DigitNumberListener implements ActionListener {
-    	
-    	private int digit;
-    	
-    	public DigitNumberListener(int _digit) {
-    		digit = _digit;
-    	}
-
-		public void actionPerformed(ActionEvent e) {
-			controller.inputDigit(digit);
-		}
-		
-    }
-    
-    class OperatorListener implements ActionListener {
-    	
-    	private Operator operator;
-    	
-    	public OperatorListener(Operator _operator) {
-    		operator = _operator;
-    	}
-
-		public void actionPerformed(ActionEvent e) {
-			controller.inputOperator(operator);
-		}
-		
-    }	
 
 }

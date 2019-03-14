@@ -1,5 +1,8 @@
 package Controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 
 import Model.Operator;
@@ -17,12 +20,13 @@ public class CalculatorController {
         view.setVisible(true);
 	}
 	
-	public void inputDigit(int digit) {
+	public void setInput(int digit) {
 		view.setJtfTextField(Integer.toString(digit));
 	}
 	
-	public void inputOperator(Operator operator) {
+	public void setInput(Operator operator) {
 		view.setJtfTextField(operator.toString());
 	}
 	
+
 }
