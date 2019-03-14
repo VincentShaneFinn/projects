@@ -1,6 +1,7 @@
 package Model.Composite;
 
 import Model.Operator;
+import Model.Visitor.ACVisitor;
 
 public class EquationComponent implements ArithmaticComponent {
 
@@ -14,8 +15,20 @@ public class EquationComponent implements ArithmaticComponent {
 		right = _right;
 	}
 	
-	public int result() {
-		return left.result() + right.result();
+	public ArithmaticComponent getLeft() {
+		return left;
+	}
+	
+	public ArithmaticComponent getRight() {
+		return right;
+	}
+
+	public Operator getOperator() {
+		return operator;
+	}
+
+	public void accept(ACVisitor visitor) {
+		visitor.visit(this);
 	}
 
 }

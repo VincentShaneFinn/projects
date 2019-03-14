@@ -1,5 +1,7 @@
 package Model.Composite;
 
+import Model.Visitor.ACVisitor;
+
 public interface ArithmaticComponent {
-	public int result();
+	public void accept(ACVisitor visitor);
 }
