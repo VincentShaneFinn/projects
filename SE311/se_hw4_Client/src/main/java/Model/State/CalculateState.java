@@ -1,8 +1,6 @@
 package Model.State;
 
 import Controller.CalculatorController;
-import Model.Composite.*;
-import Model.Visitor.SolveVisitor;
 
 public class CalculateState implements ICalculatorState {
 

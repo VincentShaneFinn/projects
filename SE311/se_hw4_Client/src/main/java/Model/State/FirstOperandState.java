@@ -1,7 +1,5 @@
 package Model.State;
 
-import javax.swing.JOptionPane;
-
 import Controller.CalculatorController;
 import Model.Composite.DigitComponent;
 

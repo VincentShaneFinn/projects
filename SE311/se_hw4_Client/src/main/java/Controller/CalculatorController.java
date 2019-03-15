@@ -6,9 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import Model.Composite.DigitComponent;
 import Model.State.*;
-import Model.Visitor.DisplayVisitor;
 import View.CalculatorView;
 
 public class CalculatorController {
@@ -16,11 +14,7 @@ public class CalculatorController {
 	private CalculatorView view;
 	private ICalculatorState state = new InitialState();
 	
-	public static void main(String[] args) {		
-//		DisplayVisitor dv = new DisplayVisitor();
-//		dv.visit(new Model.Composite.EquationComponent(new DigitComponent(2), Operator.Plus, new DigitComponent(3)));
-//		dv.print();
-		
+	public static void main(String[] args) {				
 		new CalculatorController();
 	}
 	
