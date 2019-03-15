@@ -34,7 +34,12 @@ public class NextOperandState implements ICalculatorState {
 		DigitComponent dc = new DigitComponent(Integer.parseInt(nextValue));
 		EquationComponent equation = new EquationComponent(precedingAC, precedingOperator, dc);
 		
-		calculate(equation, context);
+		try {
+			calculate(equation, context);
+		} catch(Exception e) {
+			context.errorMessage();
+			return;
+		}
 		context.setState(new CalculateState());
 	}
 
@@ -44,7 +49,7 @@ public class NextOperandState implements ICalculatorState {
 	
 	private void calculate(EquationComponent equation, CalculatorController context) {
 		SolveVisitor visitor = new SolveVisitor();
-		equation.accept(visitor);
+	 	equation.accept(visitor);
 		context.setDisplayText(Integer.toString(visitor.getResult()));
 	}
 
