@@ -2,10 +2,13 @@ package Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.UnknownHostException;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import Model.Composite.EquationComponent;
 import Model.State.*;
 import View.CalculatorView;
 
@@ -13,6 +16,7 @@ public class CalculatorController {
 
 	private CalculatorView view;
 	private ICalculatorState state = new InitialState();
+	private ClientConnection client;
 	
 	public static void main(String[] args) {				
 		new CalculatorController();
@@ -24,6 +28,16 @@ public class CalculatorController {
         view.setLocationRelativeTo(null);
         view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         view.setVisible(true);
+        
+        try {
+			client = new ClientConnection();
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         
         setupListeners();
 	}
@@ -59,6 +73,10 @@ public class CalculatorController {
 	
 	public void setState(ICalculatorState _state) {
 		state = _state;
+	}
+	
+	public void sendEquation(EquationComponent equation) {
+		client.sendMessage(equation);
 	}
 	
 	public ICalculatorState getState() {
