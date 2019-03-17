@@ -23,4 +23,8 @@ public class DisplayVisitor implements IACVisitor {
 		System.out.println(sb);
 	}
 	
+	public String getString() {
+		return sb.toString();
+	}
+	
 }

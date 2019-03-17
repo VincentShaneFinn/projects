@@ -36,6 +36,7 @@ public class NextOperandState implements ICalculatorState {
 		
 		try {
 			calculate(equation, context);
+			
 		} catch(Exception e) {
 			context.errorMessage();
 			return;
