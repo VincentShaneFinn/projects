@@ -6,6 +6,7 @@ import Model.Composite.EquationComponent;
 public class DisplayVisitor implements IACVisitor {
 
 	private StringBuilder sb = new StringBuilder();
+	private int solution;
 	
 	public void visit(DigitComponent digit) {
 		sb.append(digit.getDigit());
@@ -20,7 +21,7 @@ public class DisplayVisitor implements IACVisitor {
 	}
 	
 	public void print() {
-		System.out.println(sb);
+		System.out.println(sb + " = " + solution);
 	}
 	
 	public String getString() {

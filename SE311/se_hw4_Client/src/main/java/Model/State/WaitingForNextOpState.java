@@ -11,10 +11,6 @@ public class WaitingForNextOpState implements ICalculatorState {
 	public WaitingForNextOpState(String _operator, IArithmaticComponent _precedingAC) {
 		operator = _operator;
 		precedingAC = _precedingAC;
-		
-		Model.Visitor.DisplayVisitor visitor = new Model.Visitor.DisplayVisitor();
-		_precedingAC.accept(visitor);
-		visitor.print();
 	}
 
 	public void digitEntered(CalculatorController context, String digit) {

@@ -10,6 +10,7 @@ import java.net.UnknownHostException;
 
 import Model.Composite.EquationComponent;
 import Model.Visitor.DisplayVisitor;
+import Model.Visitor.SolveVisitor;
 
 public class ClientConnection {
 	
@@ -26,14 +27,18 @@ public class ClientConnection {
 		outputToServer = new PrintStream(socket.getOutputStream());
 	}
 	
-	public void sendMessage(EquationComponent equation) {
-		
-		System.out.println("Enter Integers, separated by spaces");
+	public void sendEquation(EquationComponent equation) {
 		
 		//Send a string to the server for now
 		DisplayVisitor dv = new DisplayVisitor();
 		equation.accept(dv);
-		outputToServer.println(dv.getString());
+		String equationString = dv.getString();
+		
+		SolveVisitor sv = new SolveVisitor();
+		equation.accept(sv);
+		int result = sv.getResult();
+		
+		outputToServer.println(equationString + " = " + result);
 	}
 	
 	public void closeConnection() throws IOException {

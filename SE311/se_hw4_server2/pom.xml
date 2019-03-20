@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>vsf23.hw4.client</groupId>
+  <groupId>vsf23.hw4.server</groupId>
   <artifactId>se311</artifactId>
-  <version>hw4Client</version>
+  <version>hw4Server</version>
   
 	<build>
 		<plugins>
@@ -12,7 +12,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>Controller.CalculatorController</mainClass>
+							<mainClass>Server.ServerMain</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

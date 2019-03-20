@@ -76,7 +76,7 @@ public class CalculatorController {
 	}
 	
 	public void sendEquation(EquationComponent equation) {
-		client.sendMessage(equation);
+		client.sendEquation(equation);
 	}
 	
 	public ICalculatorState getState() {
