@@ -6,7 +6,7 @@ import se_hw3.Input.ConsoleInputStrategy;
 import se_hw3.Input.FileInputStrategy;
 import se_hw3.Observer.PassLinesObserver;
 
-public class OutputContext {
+public class OutputContext implements PassLinesObserver {
 
 	private OutputStrategy strategy;
 	
@@ -18,7 +18,7 @@ public class OutputContext {
 		strategy.writeLine(line);
 	}
 	
-	public void writeLines(LineStorage lines) {
+	private void writeLines(LineStorage lines) {
 		strategy.writeLines(lines);
 	}
 	
@@ -34,6 +34,11 @@ public class OutputContext {
 			break;
 		}
 		
+	}
+
+	public void processLinesEvent(LineStorage lines) {
+		// TODO Auto-generated method stub
+		writeLines(lines);
 	}
 	
 }

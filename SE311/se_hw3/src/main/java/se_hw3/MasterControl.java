@@ -6,10 +6,10 @@ import se_hw3.Output.*;
 
 import java.util.Arrays;
 
-public class MasterControl implements PassLinesObserver {
+public class MasterControl {
 	
-	public InputContext inputContext = new InputContext(new CircularShift(new Alphabetizer(this)));
 	public OutputContext outputContext = new OutputContext();
+	public InputContext inputContext = new InputContext(new CircularShift(new Alphabetizer(outputContext)));
 
 	//MARK: Main
 	
@@ -47,20 +47,7 @@ public class MasterControl implements PassLinesObserver {
 	public void programLoop() {
 		
 		inputContext.readLines();	
-		
-//		CircularShift circularShift = new CircularShift();
-//		circularShift.performCircularShift(lines);
-//		
-//		Alphabetizer alphabetizer = new Alphabetizer();
-//		lines = alphabetizer.sortByAlphabeticalOrder(lines);
-//		
-//		outputContext.writeLines(lines);
 	    
-	}
-
-	public void processLinesEvent(LineStorage lines) {
-		// TODO Auto-generated method stub
-		outputContext.writeLines(lines);
 	}	
 	
 }
