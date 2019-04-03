@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Level Testing/IntroMovie.unity
+    guid: 9fa4b035517b143408c736c6812fcb2f
+  - enabled: 1
+    path: Assets/Scenes/Level Testing/Main Menu.unity
+    guid: 35d42728be56c1940a3e91f570d37dd0
+  - enabled: 1
+    path: Assets/Scenes/Level Testing/MainHallScene.unity
+    guid: 6c3efff93ac5e5e49af52b775a1317f2
+  - enabled: 1
+    path: Assets/Scenes/Level Testing/LivingWingScene.unity
+    guid: b658743c8cea3124985170242b75221d
+  - enabled: 1
+    path: Assets/Scenes/Level Testing/Death Menu.unity
+    guid: b4c3c95428ceb794098dfcb83b7f66b4
+  - enabled: 1
+    path: Assets/Scenes/Level Testing/DiningWingScene.unity
+    guid: 250fe19752ede154fb2093edf6fc91e2
+  - enabled: 1
+    path: Assets/Scenes/Level Testing/Training.unity
+    guid: f46fe762045eaa648a773ca6dce88b8a
+  - enabled: 1
+    path: Assets/Scenes/Level Testing/BossScene.unity
+    guid: fab5a64444f286549841b9a1efb6fc43
+  - enabled: 0
+    path: Assets/Scenes/Level Testing/AbushTesting1_AmbushRoomWithWaves.unity
+    guid: 295a5e81775cbb042b3ab33f38c1fe4c
+  - enabled: 0
+    path: Assets/Scenes/Level Testing/Level_Testing1_CreatingTheLevel.unity
+    guid: 80638436168840f4b966f3b47fb17222
+  - enabled: 1
+    path: Assets/Scenes/Level Testing/WinScene.unity
+    guid: 6c745fea717e50143ab1dbea1b214617
+  - enabled: 1
+    path: Assets/Scenes/Level Testing/HellBat.unity
+    guid: fb4d80d1b06446541bb3818daf6a1ab6
+  m_configObjects: {}
