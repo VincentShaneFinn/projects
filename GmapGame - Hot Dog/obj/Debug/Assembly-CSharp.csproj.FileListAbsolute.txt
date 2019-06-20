@@ -1,0 +1,2 @@
+C:\Users\hunte\Documents\GitHub\Gmap_repo\GmapGame\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\hunte\Documents\GitHub\Gmap_repo\GmapGame\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
